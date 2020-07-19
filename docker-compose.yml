@@ -3,6 +3,9 @@ services:
   web:
     build: .
     command: python /mansoor/manage.py runserver 0.0.0.0:8000
+    environment:
+      - SECRET_KEY=0k+q50$$*i)cpr1%61v^r1#_jv0^()u5-1hs&zza88l_2*1bsp%
+      - DEBUG=1
     volumes:
       - .:/mansoor
     ports:
