@@ -47,11 +47,11 @@ class SignupPageTests(TestCase):
         self.assertNotContains(
             self.response, 'Hi there! I should not be on the page.')
 
-    def test_signup_form(self): 
+    def test_signup_form(self):
         form = self.response.context.get('form')
         self.assertIsInstance(form, CustomUserCreationForm)
         self.assertContains(self.response, 'csrfmiddlewaretoken')
-
+    
     def test_signup_view(self):
         view = resolve('/accounts/signup/')
         self.assertEqual(
