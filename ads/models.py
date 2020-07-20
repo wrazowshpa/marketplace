@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -27,6 +28,30 @@ class Subsubcategory(models.Model):
 
     def __str__(self):
         return self.sub_sub_category_name
+
+
+class Ad(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='ad')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, db_column='email', on_delete=models.CASCADE)
+    ad_title = models.CharField(max_length=400)
+    description = models.TextField(max_length=6000)
+    region = models.CharField(max_length=200)
+    price = models.IntegerField()
+    phone_number = models.CharField(max_length=100)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.ad_title
+
+    def get_absolute_url(self):
+        return reverse('ad_detail', kwargs={'pk': str(self.pk)})
+
+
+
 
 
 
