@@ -51,6 +51,15 @@ class Ad(models.Model):
         return reverse('ad_detail', kwargs={'pk': str(self.pk)})
 
 
+class AdImage(models.Model):
+    ad = models.ForeignKey(Ad, on_delete=models.CASCADE, related_name='postimage')
+    image = models.ImageField(upload_to='images/ad', verbose_name='image',)
+
+    def __str__(self):
+        return str(self.image)
+
+
+
 
 
 
