@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% block title %}Ad List{% endblock title %}
+{% block content %}
+<h1>Search Results</h1>
+
+<ul>
+    {% for ad in ad_search_results %}
+    <h2><a href="{{ad.id}}/">{{ad.ad_title}} </a></h2>
+    <li>{{ ad.description }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}

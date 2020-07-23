@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+{% block title %}Ad Detail{% endblock title %}
+{% block content %}
+<h1>Ad Detail</h1>
+
+      <div class="jumbotron">
+    <h1>Welcome to the Ad Detail Page</h1>
+    <h2>Ad Details:</h2>
+    <p>Id_num: {{ad_details.id}}</p>
+    <p>Name: {{ad_details.ad_title}}</p>
+    <p>Principal: {{ad_details.description}}</p>
+    <p>Location: {{ad_details.region}}</p>
+    <p>Price: {{ad_details.price}}</p>
+
+  </div>
+{% endblock content %}

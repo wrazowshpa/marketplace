@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+{% block title %}Ad Update{% endblock title %}
+{% block content %}
+<h1>
+    {% if not form.instance.pk %}
+    Create Ad
+    {% else %}
+    Update Ad
+    {% endif %}
+
+</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+{% endblock content %}

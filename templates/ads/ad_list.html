@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+{% block title %}Ad List{% endblock title %}
+{% block content %}
+<h1>Ad List</h1>
+
+    <ol>
+        {% for ad in ad_list %}
+        <h2><a href="{{ad.id}}/">{{ad.ad_title}} </a></h2>
+        <p>{{ ad.description }}</p></li>
+        {% endfor %}
+    </ol>
+
+{% endblock content %}
