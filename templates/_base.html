@@ -41,7 +41,10 @@
 
         <a class="p-2 text-dark" href="{% url 'about' %}">About</a>
 
+        <a class="p-2 text-dark" href="{% url 'create' %}">Post Ad</a>
+
         {% if user.is_authenticated %}
+          <a class="p-2 text-dark" href="{% url 'user_ad' %}">User Ads</a>
 
           <a class="p-2 text-dark" href="{% url 'account_logout' %}">Log Out</a>
 
