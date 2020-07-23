@@ -60,7 +60,7 @@ class AdDeleteView(DeleteView):
     model = models.Ad
     template_name = 'ads/ad_delete.html'
     context_object_name = 'ad_delete'
-    success_url = reverse_lazy('list')
+    success_url = reverse_lazy('user_ad')
 
 
 # this is the ordinary search that a user will do on the ad list page

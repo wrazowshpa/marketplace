@@ -48,7 +48,7 @@ class Ad(models.Model):
         return self.ad_title
 
     def get_absolute_url(self):
-        return reverse('ad_detail', kwargs={'pk': str(self.pk)})
+        return reverse('detail', kwargs={'pk': str(self.pk)})
 
 
 class AdImage(models.Model):
