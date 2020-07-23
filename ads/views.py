@@ -53,13 +53,14 @@ class AdUpdateView(UpdateView):
     fields = '__all__'
     template_name = 'ads/ad_update.html'
 
-    success_url = reverse_lazy('ads:list')
+    success_url = reverse_lazy('list')
 
-"""
+
 class AdDeleteView(DeleteView):
     model = models.Ad
-    success_url = reverse_lazy('ads:list')
-"""
+    template_name = 'ads/ad_delete.html'
+    context_object_name = 'ad_delete'
+    success_url = reverse_lazy('list')
 
 
 # this is the ordinary search that a user will do on the ad list page

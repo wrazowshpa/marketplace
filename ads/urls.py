@@ -9,5 +9,6 @@ urlpatterns = [
     path('search/', views.AdSearchResultsView.as_view(), name='search_results'),
     path('search/<uuid:pk>/', views.AdDetailView.as_view(), name='detail'),
     path('userad/', views.userprofile, name='user_ad'),
-
+    path('userad/update/<uuid:pk>/', views.AdUpdateView.as_view(), name='user_ad_update'),
+    path('userad/delete/<uuid:pk>/', views.AdDeleteView.as_view(), name='user_ad_delete'),
 ]

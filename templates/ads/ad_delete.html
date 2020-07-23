@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+{% block title %}Ad Delete{% endblock title %}
+{% block content %}
+<h1>Ad Delete</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ad_delete.ad_title}}"?</p>
+    <input type="submit" value="Delete">
+</form>
+
+
+{% endblock content %}
