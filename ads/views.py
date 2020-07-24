@@ -33,17 +33,18 @@ class AdDetailView(DetailView):
 
 class AdCreateView(LoginRequiredMixin, CreateView):
     model = models.Ad
-    # fields = ['category', 'ad_type', 'for_sale_by', 'ad_title', 'description', 'images',
-    #          'youtube_video_link', 'website_url_link', 'city', 'price','price_options', 'phone_num',
-    #          'email',]
+    fields = ['category', 'ad_title', 'description',
+              'region', 'price', 'phone_number',]
 
-    fields = '__all__'
+    # fields = '__all__'
     template_name = 'ads/ad_create.html'
 
     # before the form is submitted the authenticated user is assigned as the author
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(AdCreateView, self).form_valid(form)
+
+
 """
 
 def ad_create_form_name(request):

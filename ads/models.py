@@ -42,7 +42,7 @@ class Ad(models.Model):
     region = models.CharField(max_length=200)
     price = models.IntegerField()
     phone_number = models.CharField(max_length=100)
-    created_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(default=timezone.localtime(timezone.now()))
 
     def __str__(self):
         return self.ad_title
