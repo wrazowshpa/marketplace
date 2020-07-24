@@ -3,6 +3,10 @@
 {% block content %}
 <h1>Ad Create</h1>
 
+
+
+
+
 <h1>
     {% if not form.instance.pk %}
     Create Ad
@@ -16,4 +20,18 @@
         {{ form.as_p }}
         <input type="submit" class="btn btn-primary" value="Submit">
     </form>
+
+<!---
+
+<form action="." method="POST">
+    {% csrf_token %}
+    {{ category_form.as_p }}
+    {{ sub_category_form.as_p }}
+    {{ sub_sub_category_form.as_p }}
+    {{ ad_form.as_p }}
+    <button type="submit">
+</form>
+    --->
+
+
 {% endblock content %}

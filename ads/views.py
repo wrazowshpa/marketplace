@@ -4,8 +4,9 @@ from django.views.generic import (View, TemplateView, ListView, DetailView, Crea
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
-
-
+from django.template.response import TemplateResponse
+from django.http import HttpResponse, HttpResponseRedirect
+# from .forms import CategoryForm, SubCategoryForm, SubSubCategoryForm, AdForm
 from . import models
 
 # Create your views here.
@@ -43,6 +44,42 @@ class AdCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(AdCreateView, self).form_valid(form)
+"""
+
+def ad_create_form_name(request):
+    if request.method == 'POST':
+
+        category_form = CategoryForm(request.POST)
+        sub_category_form = SubCategoryForm(request.POST)
+        sub_sub_category_form = SubSubCategoryForm(request.POST)
+        ad_form = AdForm(request.POST)
+
+        if category_form.is_valid() and sub_category_form.is_valid() and sub_sub_category_form.is_valid() and ad_form.is_valid():
+
+            category_form.save()
+            sub_category_form.save()
+            sub_sub_category_form.save()
+            ad_form.save()
+            return HttpResponseRedirect('/success')
+
+        else:
+            context = {
+                'category_form': category_form,
+                'sub_category_form': sub_category_form,
+                'sub_sub_category_form': sub_sub_category_form,
+                'ad_form': ad_form,
+            }
+
+    else:
+        context = {
+            'category_form': CategoryForm(),
+            'sub_category_form': SubCategoryForm(),
+            'sub_sub_category_form': SubSubCategoryForm(),
+            'ad_form': AdForm(),
+        }
+
+    return TemplateResponse(request, 'ads/ad_create.html', context)
+"""
 
 
 class AdUpdateView(UpdateView):
